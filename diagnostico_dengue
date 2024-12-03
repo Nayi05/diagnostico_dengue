@@ -1,0 +1,49 @@
+% Las Reglas
+Git checkout -b rama-gripe
+Git add.
+Git commit-m"gripe(X):- malestar(X), fiebre(X), tos(X),sec_nas(X).
+Gripe(X):- malestar(X), fiebre(X), tos(X),sec_nas(X).
+Git checkout -b rama-dengue.
+Git commit-m
+"dengue(X):- malestar(X), fiebre(X), dolor_art_mus(X), erupción(X).
+Dengue(X):- malestar(X), fiebre(X), dolor_art_mus(X), erupción cutánea(X).
+
+% El diagnostico
+Git checkout -b rama-principal
+Git push origin rama.
+Diagnostico(X):-nl, write('Se investiga GRIPE'),gripe(X),
+Nl, write(X), write(' tiene síntomas de GRIPE.'),fail.
+Diagnostico(X):-nl, write('Se investiga DENGUE'), dengue(X),
+Nl, write(X),write(' tiene sospecha de DENGUE.').
+Diagnostico(X):-write(' NO SE LOGRÓ UN DIAGNOSTICO.').
+Consulta 1
+¿- diagnostico(pepe).
+Se investiga GRIPE
+Pepe tiene malestar? [s/n]: s.
+Pepe tiene fiebre? [s/n]: |: s.
+Pepe tiene tos? [s/n]: |: n.
+
+Se investiga DENGUE
+Pepe tiene malestar? [s/n]: |: s.
+Pepe tiene fiebre? [s/n]: |: s.
+Pepe tiene dolor muscular o en articulaciones? [s/n]: |: s.
+Pepe tiene sarpullido [s/n]: |: s.
+Pepe tiene sospecha de DENGUE.
+Consulta 2
+¿- diagnostico(pepe).
+Se investiga GRIPE
+Pepe tiene malestar? [s/n]: s.
+Pepe tiene fiebre? [s/n]: |: n.
+
+Se investiga DENGUE
+Pepe tiene malestar? [s/n]: |: s.
+Pepe tiene fiebre? [s/n]: |: n.
+
+NO SE LOGRÓ UN DIAGNÓSTICO.
+
+@Nayi05
+
+
+Añade un comentario
+Comentario
+Este trabajo trata sobre dado un ejercicio propuesto en clase para diagnosticar el dengue .
